@@ -28,7 +28,6 @@ class Colaborador
     puts "----- CPF:\t\t #{@cpf}"
     puts "----- Vacinado(a):\t #{@vacinado ? 'Sim' : 'Não'}"
     puts '==========================================================='
-    ControladorVacina.pausa(5)
   end
 end
 
@@ -44,7 +43,7 @@ class ControladorVacina
 
   def self.menu
     puts "\n Total de vacinados: #{ControladorVacina.colaboradores.count}"
-    puts "............................\n Vacinômetro Empresarial 0.1\n............................"
+    puts "............................\n Vacinômetro Empresarial 0.2\n............................"
     puts " O que deseja fazer? \n\n"
     puts ' (1) Cadastrar colaborador'
     puts ' (2) Localizar colaborador'
@@ -82,6 +81,7 @@ class ControladorVacina
 
     ControladorVacina.colaboradores << colaborador
     colaborador.mostrar
+    ControladorVacina.pausa(3)
   end
 
   def self.cadastrar_colaborador
@@ -94,6 +94,7 @@ class ControladorVacina
     else
       puts "Colaborador do cpf #{cpf} já foi vacinado!"
       colaborador.mostrar
+      ControladorVacina.pausa(3)
     end
   end
 
@@ -108,6 +109,7 @@ class ControladorVacina
       ControladorVacina.incluir_colaborador(cpf) if opcao == 'S'
     else
       colaborador.mostrar
+      ControladorVacina.pausa(3)
     end
   end
 
@@ -120,6 +122,7 @@ class ControladorVacina
       return
     end
     ControladorVacina.colaboradores.each(&:mostrar)
+    ControladorVacina.pausa(5)
   end
 
   def self.pausa(tempo=2)
