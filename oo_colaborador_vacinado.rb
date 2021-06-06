@@ -28,6 +28,7 @@ class Colaborador
     puts "----- CPF:\t\t #{@cpf}"
     puts "----- Vacinado(a):\t #{@vacinado ? 'Sim' : 'Não'}"
     puts '==========================================================='
+    ControladorVacina.pausa(5)
   end
 end
 
@@ -42,12 +43,15 @@ class ControladorVacina
   end
 
   def self.menu
+    puts "\n Total de vacinados: #{ControladorVacina.colaboradores.count}"
+    puts '...........................'
     puts "\n O que deseja fazer? \n\n"
     puts ' (1) Cadastrar colaborador'
     puts ' (2) Localizar colaborador'
-    puts ' (3) Listar colaborador'
+    puts ' (3) Listar colaboradores'
     puts ' (4) Sair'
-    print ' Seleciona uma opção: '
+    puts '...........................'
+    print "\n Seleciona uma opção: "
     captura_item_menu
   end
 
@@ -55,8 +59,10 @@ class ControladorVacina
     opcao = gets.to_i
     case opcao
     when 1
+      system('clear')
       ControladorVacina.cadastrar_colaborador
     when 2
+      system('clear')
       ControladorVacina.buscar_colaborador
     when 3
       ControladorVacina.listar_colaboradores
@@ -76,7 +82,6 @@ class ControladorVacina
 
     ControladorVacina.colaboradores << colaborador
     colaborador.mostrar
-    ControladorVacina.pausa
   end
 
   def self.cadastrar_colaborador
@@ -115,11 +120,10 @@ class ControladorVacina
       return
     end
     ControladorVacina.colaboradores.each(&:mostrar)
-    puts " Total de vacinados: #{ControladorVacina.colaboradores.count}"
   end
 
-  def self.pausa
-    sleep(2)
+  def self.pausa(tempo=2)
+    sleep(tempo)
     system('clear')
   end
 
