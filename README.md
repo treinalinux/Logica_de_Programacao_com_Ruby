@@ -1,5 +1,7 @@
 # Logica de Programação com Ruby
 
+- Comunidade do Torne-se um Programador (Mentor Danilo Aparecido)
+
 ## 01 - Introdução a Logica de Programação com Ruby
 
 ## 02 - Variáveis

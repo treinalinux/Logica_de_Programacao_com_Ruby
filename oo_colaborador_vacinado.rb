@@ -44,7 +44,7 @@ class ControladorVacina
   def self.banner
     puts "\n Total de vacinados: #{ControladorVacina.colaboradores.count}"
     puts '............................'
-    puts 'Vacinômetro Empresarial 0.3'
+    puts ' Vacinômetro Empresarial 0.3'
     puts '............................'
   end
 
@@ -56,7 +56,7 @@ class ControladorVacina
     puts ' (3) Listar colaboradores'
     puts ' (4) Sair'
     puts '............................'
-    print "\n Seleciona uma opção: "
+    print "\n Selecione uma opção: "
     captura_item_menu
   end
 
