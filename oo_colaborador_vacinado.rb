@@ -41,9 +41,15 @@ class ControladorVacina
     @@colaboradores
   end
 
-  def self.menu
+  def self.banner
     puts "\n Total de vacinados: #{ControladorVacina.colaboradores.count}"
-    puts "............................\n Vacinômetro Empresarial 0.2\n............................"
+    puts '............................'
+    puts 'Vacinômetro Empresarial 0.3'
+    puts '............................'
+  end
+
+  def self.menu
+    banner
     puts " O que deseja fazer? \n\n"
     puts ' (1) Cadastrar colaborador'
     puts ' (2) Localizar colaborador'
@@ -58,16 +64,20 @@ class ControladorVacina
     opcao = gets.to_i
     case opcao
     when 1
-      system('clear')
       ControladorVacina.cadastrar_colaborador
     when 2
-      system('clear')
       ControladorVacina.buscar_colaborador
     when 3
       ControladorVacina.listar_colaboradores
     when SAIR_DO_SISTEMA
       SAIR_DO_SISTEMA
     end
+  end
+
+  def self.guarda_cpf
+    system('clear')
+    print 'Digite o CPF do colaborador: '
+    cpf = gets.strip
   end
 
   def self.incluir_colaborador(cpf)
@@ -85,22 +95,20 @@ class ControladorVacina
   end
 
   def self.cadastrar_colaborador
-    print 'Digite o CPF do colaborador: '
-    cpf = gets.strip
+    cpf = ControladorVacina.guarda_cpf
     colaborador = Colaborador.buscar_por_cpf(cpf)
 
     if colaborador.nil?
       ControladorVacina.incluir_colaborador(cpf)
     else
-      puts "Colaborador do cpf #{cpf} já foi vacinado!"
+      puts "Colaborador do cpf #{cpf} já foi vacinado!."
       colaborador.mostrar
       ControladorVacina.pausa(3)
     end
   end
 
   def self.buscar_colaborador
-    print 'Digite o CPF do colaborador: '
-    cpf = gets.strip
+    cpf = ControladorVacina.guarda_cpf
     colaborador = Colaborador.buscar_por_cpf(cpf)
 
     if colaborador.nil?
@@ -125,7 +133,7 @@ class ControladorVacina
     ControladorVacina.pausa(5)
   end
 
-  def self.pausa(tempo=2)
+  def self.pausa(tempo = 2)
     sleep(tempo)
     system('clear')
   end
