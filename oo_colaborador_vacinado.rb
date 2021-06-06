@@ -44,13 +44,13 @@ class ControladorVacina
 
   def self.menu
     puts "\n Total de vacinados: #{ControladorVacina.colaboradores.count}"
-    puts '...........................'
-    puts "\n O que deseja fazer? \n\n"
+    puts "............................\n Vacinômetro Empresarial 0.1\n............................"
+    puts " O que deseja fazer? \n\n"
     puts ' (1) Cadastrar colaborador'
     puts ' (2) Localizar colaborador'
     puts ' (3) Listar colaboradores'
     puts ' (4) Sair'
-    puts '...........................'
+    puts '............................'
     print "\n Seleciona uma opção: "
     captura_item_menu
   end
