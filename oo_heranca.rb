@@ -58,3 +58,47 @@ puts Juridica.new.inspect
 puts '----------------------'
 puts 'O que for = eh um setter, os demais sao getter:'
 puts Fisica.new.methods - Class.methods
+
+# -----------------------------
+
+puts "\n...........class Prototipo..........."
+# class Prototipo
+class Prototipo
+  attr_accessor :data_criacao
+
+  # public
+  # por padrao os metodos sao publicos
+  def metodo_publico
+    puts "\nmétodo privado"
+  end
+
+  protected
+
+  def metodo_protegido
+    puts "\nmétodo privado"
+  end
+
+  private
+
+  def executa
+    puts "\nmétodo privado é usado quando for exclusivo"
+  end
+end
+
+# class Carro
+class Carro < Prototipo
+  attr_accessor :nome
+
+  def executa_filho
+    # self.executa
+    # Style/RedundantSelf: Redundant `self` detected.
+    executa
+  end
+
+  def andando
+    metodo_protegido
+  end
+end
+
+Carro.new.executa_filho
+Carro.new.andando
