@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'byebug'
+
 # Sistema de Padaria - Mudar no futuro
 # Cliente: Joao
 # Pedido:
@@ -9,6 +11,8 @@
 # e devolver o resultado com desconto
 
 system('clear')
+
+debugger
 
 puts '---------------------------'
 print 'Informe o valor total: '
