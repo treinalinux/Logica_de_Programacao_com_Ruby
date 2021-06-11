@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Cliente: Joao
 # Pedido:
 # Software que faca o calculo da porcentagem de desconto,
@@ -17,4 +19,16 @@ puts '---------------------------'
 valor_desconto = valor_total * porcentagem_desconto / 100
 valor_total_com_desconto = valor_total - valor_desconto
 
+## ifs
+acresimo_no_valor = 0
+
+if valor_total_com_desconto < 10
+  print 'Gostaria de incluir um item a mais? [S/N]: '
+  decisao_do_cliente = gets.chomp
+  acresimo_no_valor = 15 if decisao_do_cliente.to_s.upcase.strip == 'S'
+end
+
+valor_total_com_desconto += acresimo_no_valor
 puts "O valr a pagar com base no valor total #{valor_total} é:\n R$ #{valor_total_com_desconto}"
+
+## Mudar no futuro usando a ideia base
