@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Sistema de Padaria - Mudar no futuro
 # Cliente: Joao
 # Pedido:
 # Software que faca o calculo da porcentagem de desconto,
