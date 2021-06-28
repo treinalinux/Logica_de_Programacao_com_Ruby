@@ -1,2 +1,4 @@
 *.lock
 .byebug_history
+node_modules
+package-lock.json
